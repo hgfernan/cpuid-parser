@@ -12,13 +12,15 @@ int main()
     cout << "# of cores = " << cinfo.cores() << endl;
     cout << "# of logical cores = " << cinfo.logicalCpus() << endl;
     cout << "Is CPU Hyper threaded = " << cinfo.isHyperThreaded() << endl;
-    cout << "CPU SSE = " << cinfo.isSSE() << endl;
-    cout << "CPU SSE2 = " << cinfo.isSSE2() << endl;
-    cout << "CPU SSE3 = " << cinfo.isSSE3() << endl;
-    cout << "CPU SSE41 = " << cinfo.isSSE41() << endl;
-    cout << "CPU SSE42 = " << cinfo.isSSE42() << endl;
-    cout << "CPU AVX = " << cinfo.isAVX() << endl;
-    cout << "CPU AVX2 = " << cinfo.isAVX2() << endl;
+    cout << boolalpha 
+         << "CPU SSE   = " << cinfo.haveSSE() << endl
+         << "CPU SSE2  = " << cinfo.haveSSE2() << endl
+         << "CPU SSE3  = " << cinfo.haveSSE3() << endl
+         << "CPU SSE41 = " << cinfo.haveSSE41() << endl
+         << "CPU SSE42 = " << cinfo.haveSSE42() << endl
+         << "CPU AVX   = " << cinfo.haveAVX() << endl
+         << "CPU AVX2  = " << cinfo.haveAVX2() << endl
+    ;
 
     return 0;
 }

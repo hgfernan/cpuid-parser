@@ -131,7 +131,7 @@ CPUInfo::CPUInfo()
 				mNumLogCpus = (cpuID1.EBX() >> 16) & 0xFF;
 				if (HFS >= 4)
 				{
-					mNumCores = 1 + (CPUID(4, 0).EAX() >> 26) & 0x3F;
+					mNumCores = 1 + ((CPUID(4, 0).EAX() >> 26) & 0x3F);
 				}
 			}
 			if (mIsHTT)
@@ -178,7 +178,7 @@ CPUInfo::CPUInfo()
 
 	// Get processor brand string
 	// This seems to be working for both Intel & AMD vendors
-	for (int i = 0x80000002; i < 0x80000005; ++i)
+	for (unsigned int i = 0x80000002; i < 0x80000005; ++i)
 	{
 		CPUID cpuID(i, 0);
 		mModelName += std::string((const char*)&cpuID.EAX(), 4);
